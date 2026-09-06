@@ -1,0 +1,4 @@
+To install and activate venv:
+
+1. python -m venv venv
+2. venv\Scripts\activate
