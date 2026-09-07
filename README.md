@@ -1,4 +1,4 @@
-# Sensor Data Simulation and Map Visualization
+# GeoSensorMonitor
 
 A desktop application that simulates sensor-data transmission over a virtual COM
 port, stores each reading in MongoDB, and visualizes both live and historical
