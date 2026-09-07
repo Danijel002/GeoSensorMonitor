@@ -1,0 +1,16 @@
+Setup
+
+1. Clone the repository and open the project folder.
+
+2. Create and activate a virtual environment:
+   - Windows: python -m venv venv then venv\Scripts\activate
+   - macOS/Linux: `python3 -m venv venv` then `source venv/bin/activate`
+
+3. Install dependencies: pip install -r requirements.txt
+
+4. Start MongoDB.
+
+5. Adjust config.py for your setup (serial port, MongoDB, node locations).
+
+6. Run the app: python main.py
+

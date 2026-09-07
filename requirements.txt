@@ -1,0 +1,5 @@
+folium
+matplotlib
+pymongo
+pyserial
+PySide6
