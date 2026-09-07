@@ -3,8 +3,8 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget
 
-from map_window import MapWindow
-from analysis_window import AnalysisWindow
+from SourceCode.map_window import MapWindow
+from SourceCode.analysis_window import AnalysisWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -34,6 +34,4 @@ def main():
         sys.exit(app.exec())
 
 if __name__ == "__main__":
-        main() 
-
-
+        main()

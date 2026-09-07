@@ -1,3 +1,5 @@
+Setup
+
 1. Clone the repository and open the project folder.
 
 2. Create and activate a virtual environment:

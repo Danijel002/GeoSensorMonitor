@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from pymongo import MongoClient, ASCENDING, DESCENDING
-import config
+from . import config
 
 client=MongoClient(config.MONGO_HOST,config.MONGO_PORT)
 db=client[config.MONGO_DB]

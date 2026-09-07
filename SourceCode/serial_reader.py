@@ -4,7 +4,7 @@ import threading
 import serial
 from PySide6.QtCore import QObject, Signal
 
-import config
+from . import config
 
 # Serial parameter name -> database field name.
 _PARAM_ALIASES = {"temp": "temperature", "hum": "humidity", "uv": "uv"}

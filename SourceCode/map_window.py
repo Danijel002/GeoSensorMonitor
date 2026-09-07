@@ -6,9 +6,9 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtCore import Signal
 
-import config
-import database
-from serial_reader import SerialReader
+from . import config
+from . import database
+from .serial_reader import SerialReader
 
 class MapWindow(QWidget):
     show_analysis=Signal()

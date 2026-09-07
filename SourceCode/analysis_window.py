@@ -9,8 +9,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import QDateTime, QDate, Signal
 
-import config
-import database
+from . import config
+from . import database
 
 # Label shown in the UI -> database field name.
 _PARAMETERS = {"Temperature": "temperature",

@@ -1,4 +1,4 @@
-# GeoSensorMonitor
+# Sensor Data Simulation and Map Visualization
 
 A desktop application that simulates sensor-data transmission over a virtual COM
 port, stores each reading in MongoDB, and visualizes both live and historical
@@ -27,8 +27,8 @@ Built with Python, PySide6, PySerial, Folium, Matplotlib, and MongoDB.
    - macOS/Linux: `python3 -m venv venv` then `source venv/bin/activate`
 3. Install dependencies: `pip install -r requirements.txt`
 4. Start MongoDB.
-5. Adjust `config.py` for your setup (serial port, MongoDB, node locations).
-6. Run the app: `python main.py`
+5. Adjust `SourceCode/config.py` for your setup (serial port, MongoDB, node locations).
+6. Run the app from the project root: `python main.py`
 
 ## Virtual serial port (com0com)
 
@@ -38,7 +38,7 @@ is required.
 
 1. Install com0com and open its Setup tool.
 2. Create a pair and name the two ends, e.g. `COM6` and `COM5`.
-3. Set `SERIAL_PORT` in `config.py` to the end the app should listen on (`COM6`).
+3. Set `SERIAL_PORT` in `SourceCode/config.py` to the end the app should listen on (`COM6`).
 
 ![com0com virtual port pair](docs/com0com.png)
 
@@ -66,8 +66,8 @@ Examples: `2,25.5` · `4,20,60` · `3,temp,30` · `1,22.5,55,6`
 
 ## How it works
 
-The application is split into small modules by responsibility, and data flows
-through them in one direction:
+The application code lives in the `SourceCode` package, and data flows through
+its modules in one direction:
 
 ```
 Br@y Terminal  ──serial──▶  serial_reader.py  ──▶  map_window.py  ──▶  database.py
@@ -110,9 +110,18 @@ fields `timestamp`, `node_id`, `temperature`, `humidity`, and `uv`.
 
 ## Project layout
 
-1. `config.py` — all settings and node definitions
-2. `database.py` — MongoDB read/write helpers
-3. `serial_reader.py` — serial port loop and line parsing
-4. `map_window.py` — map page
-5. `analysis_window.py` — analysis / chart page
-6. `main.py` — entry point and page navigation
+```
+.
+├── main.py               # entry point and page navigation (run this)
+├── requirements.txt
+├── README.md
+├── docs/                 # screenshots used in this README
+└── SourceCode/           # application package
+    ├── __init__.py       # marks the folder as a Python package
+    ├── config.py         # all settings and node definitions
+    ├── database.py       # MongoDB read/write helpers
+    ├── serial_reader.py  # serial port loop and line parsing
+    ├── map_window.py     # map page
+    └── analysis_window.py# analysis / chart page
+```
+
