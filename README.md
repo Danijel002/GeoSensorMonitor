@@ -12,12 +12,11 @@ Built with Python, PySide6, PySerial, Folium, Matplotlib, and MongoDB.
 
 ## Requirements
 
-- Python 3.10+
-- A running MongoDB instance (default: `localhost:27017`)
-- [com0com](https://sourceforge.net/projects/com0com/) — creates a pair of
-  linked virtual COM ports (Windows)
-- [Br@y Terminal](https://sites.google.com/site/terminalbpp/) — sends the sensor
-  values
+- [Python 3.10+](https://www.python.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [com0com](https://sourceforge.net/projects/com0com/) 
+- [Br@y Terminal](https://sites.google.com/site/terminalbpp/)
+- [Folium](https://python-visualization.github.io/folium/latest/)
 
 ## Setup
 
