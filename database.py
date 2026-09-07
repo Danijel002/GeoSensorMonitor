@@ -22,19 +22,26 @@ def save_reading(node_id, temperature, humidity,uv):
 
 def get_latest_per_node():
     """Return {node_id: (temperature, humidity, uv)} for the newest reading of each node."""
-    pipline=[
-        {"$sort":{"timestamp":DESCENDING}},
-        {"$group":{
-            "id":"$node_id",
-            "temperature":{"$first":"$temperature"},
-            "humidity":{"$first":"$humidity"},
-            "uv":{"$first":"$uv"},
+    pipeline = [
+        {"$sort": {"timestamp": DESCENDING}},
+        {"$group": {
+            "_id": "$node_id",
+            "temperature": {"$first": "$temperature"},
+            "humidity": {"$first": "$humidity"},
+            "uv": {"$first": "$uv"},
+        }},
+        {"$project": {
+            "_id": 0,
+            "id": "$_id",
+            "temperature": 1,
+            "humidity": 1,
+            "uv": 1,
         }},
     ]
 
     return {
         doc["id"]:(doc["temperature"],doc["humidity"],doc["uv"])
-        for doc in collection.aggregate(pipline)
+        for doc in collection.aggregate(pipeline)
     }
 
 def get_recent_readings(node_id,limit=config.HISTORY_LIMIT):
@@ -62,5 +69,3 @@ def get_readings_between(node_id, start, end):
         "timestamp": {"$gte": start, "$lte": end},
     }).sort("timestamp", ASCENDING)
     return list(cursor)
-
-
